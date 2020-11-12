@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 791873405702335271}
   - component: {fileID: 791873405702335270}
   - component: {fileID: 791873405702335289}
-  - component: {fileID: 555780811916388677}
+  - component: {fileID: 4701808030904164061}
   - component: {fileID: 2255130347838544598}
   m_Layer: 0
   m_Name: PhotoCamera
@@ -332,7 +332,7 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
   m_RetainTransformParent: 1
---- !u!114 &555780811916388677
+--- !u!114 &4701808030904164061
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -341,27 +341,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 791873405702335288}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349540a5c351a4244b0e79b4ebc6ee2d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f9b425719ea519468c05a9705bd267d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderTexture: {fileID: 8400000, guid: fd73471bde14a0142bf932015de9e412, type: 2}
-  cameraDisplay: {fileID: 885535943805981183}
-  flashDuration: 0.3
-  onTakePhotoEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2255130347838544598}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  photoCameraView:
+    xrGrabInteractable: {fileID: 791873405702335289}
+    capturedImage: {fileID: 8400000, guid: fd73471bde14a0142bf932015de9e412, type: 2}
+    cameraMonitor: {fileID: 885535943805981183}
+    flashDuration: 0.3
+    onTakePhotoEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2255130347838544598}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!82 &2255130347838544598
 AudioSource:
   m_ObjectHideFlags: 0

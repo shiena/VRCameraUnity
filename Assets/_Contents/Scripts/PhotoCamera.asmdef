@@ -1,0 +1,21 @@
+{
+    "name": "PhotoCamera",
+    "references": [
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:5f3b307c872f9364bb7f9b4d767d3816",
+        "GUID:084d2889d9a07aa4e8040ba8725e964b",
+        "GUID:cdddf331b9839f04c8cc5c53b073d462",
+        "GUID:64eef9bba05ff184399d6aa4a1014a07",
+        "GUID:7fad5d2f988a0884b926d62072970b55"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

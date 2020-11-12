@@ -1,24 +1,31 @@
 using System;
 using System.IO;
 using UnityEngine;
+using VContainer;
 
-namespace PhotoCamera
+namespace PhotoCamera.DataStore
 {
-    public class Photography
+    public interface IPhotographyDataStore
     {
-        private readonly GalleryHelper galleryHelper;
+        void Save(byte[] bytes);
+    }
+
+    public class PhotographyDataStore : IPhotographyDataStore
+    {
+        private readonly IGalleryDataStore galleryDataStore;
         private readonly string screenshotFolder;
 
-        public Photography(GalleryHelper galleryHelper)
+        [Inject]
+        public PhotographyDataStore(IGalleryDataStore galleryDataStore)
         {
-            this.galleryHelper = galleryHelper;
+            this.galleryDataStore = galleryDataStore;
             screenshotFolder = GetScreenshotFolder();
         }
 
         private string GetScreenshotFolder()
         {
 #if UNITY_ANDROID && !UNITY_EDITOR
-            return Path.Combine(galleryHelper.StoragePath, "Oculus", "Screenshots");
+            return Path.Combine(galleryDataStore.StoragePath, "Oculus", "Screenshots");
 #elif UNITY_STANDALONE && !UNITY_EDITOR
             return Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyPictures), Application.productName);
 #else
@@ -34,7 +41,7 @@ namespace PhotoCamera
             }
             var screenshotFile = Path.Combine(screenshotFolder, $"{Application.productName}_{DateTime.Now:yyyy-MM-dd_HH-mm-ss-fff}.png");
             File.WriteAllBytes(screenshotFile, bytes);
-            galleryHelper.RegisterImage(screenshotFile);
+            galleryDataStore.RegisterImage(screenshotFile);
         }
     }
 }

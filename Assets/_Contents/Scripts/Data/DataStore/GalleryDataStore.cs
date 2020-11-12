@@ -1,14 +1,20 @@
 ﻿using System;
 using UnityEngine;
 
-namespace PhotoCamera
+namespace PhotoCamera.DataStore
 {
-    public class GalleryHelper : IDisposable
+    public interface IGalleryDataStore
     {
-        public readonly string StoragePath;
+        string StoragePath { get; }
+        void RegisterImage(string path);
+    }
+
+    public class GalleryDataStore : IGalleryDataStore, IDisposable
+    {
+        public string StoragePath { get; }
         private AndroidJavaClass galleryHelper;
 
-        public GalleryHelper()
+        public GalleryDataStore()
         {
 #if UNITY_ANDROID && !UNITY_EDITOR
             galleryHelper = new AndroidJavaClass("photocamera.GalleryHelper");
