@@ -124,7 +124,7 @@
       }
     },
     "com.unity.xr.interaction.toolkit": {
-      "version": "0.10.0-preview.7",
+      "version": "1.0.0-pre.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
