@@ -38,6 +38,10 @@ namespace PhotoCamera.UseCase
             while (!token.IsCancellationRequested)
             {
                 await photoCameraController.OnTriggerPulledAsync();
+                if (!photographyRepository.IsWritable())
+                {
+                    continue;
+                }
                 cameraMonitorPresenter.InvokeTakePhotoEvent();
                 await (cameraMonitorPresenter.FlashAsync(token),
                     photographyRepository.TakePhotoAsync(photoCameraController.CapturedImage, token));

@@ -8,6 +8,7 @@ namespace PhotoCamera.Repository
 {
     public interface IPhotographyRepository
     {
+        bool IsWritable();
         UniTask TakePhotoAsync(RenderTexture capturedImage, CancellationToken ct);
     }
 
@@ -19,6 +20,11 @@ namespace PhotoCamera.Repository
         public PhotographyRepository(IPhotographyDataStore photographyDataStore)
         {
             this.photographyDataStore = photographyDataStore;
+        }
+
+        public bool IsWritable()
+        {
+            return photographyDataStore.IsWritable();
         }
 
         public async UniTask TakePhotoAsync(RenderTexture capturedImage, CancellationToken ct)

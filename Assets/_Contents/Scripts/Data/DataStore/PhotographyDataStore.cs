@@ -1,12 +1,16 @@
 using System;
 using System.IO;
 using UnityEngine;
+#if UNITY_ANDROID
+using UnityEngine.Android;
+#endif
 using VContainer;
 
 namespace PhotoCamera.DataStore
 {
     public interface IPhotographyDataStore
     {
+        bool IsWritable();
         void Save(byte[] bytes);
     }
 
@@ -31,6 +35,21 @@ namespace PhotoCamera.DataStore
 #else
             return Path.Combine(Application.temporaryCachePath, Application.productName);
 #endif
+        }
+
+        public bool IsWritable()
+        {
+#if UNITY_ANDROID
+            if (!Permission.HasUserAuthorizedPermission(Permission.ExternalStorageWrite))
+            {
+                Permission.RequestUserPermission(Permission.ExternalStorageWrite);
+                if (!Permission.HasUserAuthorizedPermission(Permission.ExternalStorageWrite))
+                {
+                    return false;
+                }
+            }
+#endif
+            return true;
         }
 
         public void Save(byte[] bytes)
