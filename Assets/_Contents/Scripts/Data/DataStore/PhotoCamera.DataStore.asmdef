@@ -2,7 +2,8 @@
     "name": "PhotoCamera.DataStore",
     "references": [
         "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
-        "GUID:f51ebe6a0ceec4240a699833d6309b23"
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:64eef9bba05ff184399d6aa4a1014a07"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

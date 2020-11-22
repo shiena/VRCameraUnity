@@ -1,16 +1,9 @@
 using Cysharp.Threading.Tasks;
-using PhotoCamera.View;
-using UnityEngine;
+using PhotoCamera.UseCase;
 using VContainer;
 
 namespace PhotoCamera.Presenter
 {
-    public interface IPhotoCameraController
-    {
-        UniTask OnTriggerPulledAsync();
-        RenderTexture CapturedImage { get; }
-    }
-
     public class PhotoCameraController : IPhotoCameraController
     {
         private readonly IPhotoCameraView photoCameraView;
@@ -19,6 +12,10 @@ namespace PhotoCamera.Presenter
         public PhotoCameraController(IPhotoCameraView photoCameraView)
         {
             this.photoCameraView = photoCameraView;
+            CameraMonitor = new CameraMonitor
+            {
+                capturedImage = photoCameraView.CapturedImage
+            };
         }
 
         public UniTask OnTriggerPulledAsync()
@@ -26,6 +23,6 @@ namespace PhotoCamera.Presenter
             return photoCameraView.OnTriggerPulledAsync();
         }
 
-        public RenderTexture CapturedImage => photoCameraView.CapturedImage;
+        public CameraMonitor CameraMonitor { get; }
     }
 }

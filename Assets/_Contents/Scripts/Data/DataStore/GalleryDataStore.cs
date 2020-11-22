@@ -3,12 +3,6 @@ using UnityEngine;
 
 namespace PhotoCamera.DataStore
 {
-    public interface IGalleryDataStore
-    {
-        string StoragePath { get; }
-        void RegisterImage(string path);
-    }
-
     public class GalleryDataStore : IGalleryDataStore, IDisposable
     {
         public string StoragePath { get; }

@@ -1,7 +1,5 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
-using PhotoCamera.Presenter;
-using PhotoCamera.Repository;
 using VContainer;
 using VContainer.Unity;
 
@@ -44,7 +42,7 @@ namespace PhotoCamera.UseCase
                 }
                 cameraMonitorPresenter.InvokeTakePhotoEvent();
                 await (cameraMonitorPresenter.FlashAsync(token),
-                    photographyRepository.TakePhotoAsync(photoCameraController.CapturedImage, token));
+                    photographyRepository.TakePhotoAsync(photoCameraController.CameraMonitor, token));
             }
         }
     }

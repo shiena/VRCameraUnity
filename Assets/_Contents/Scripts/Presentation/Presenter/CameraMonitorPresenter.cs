@@ -1,18 +1,12 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using PhotoCamera.View;
+using PhotoCamera.UseCase;
 using UnityEngine;
 using VContainer;
 
 namespace PhotoCamera.Presenter
 {
-    public interface ICameraMonitorPresenter
-    {
-        UniTask FlashAsync(CancellationToken ct);
-        void InvokeTakePhotoEvent();
-    }
-
     public class CameraMonitorPresenter : ICameraMonitorPresenter
     {
         private readonly IPhotoCameraView photoCameraView;

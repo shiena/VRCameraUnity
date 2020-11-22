@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using PhotoCamera.Presenter;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -8,15 +9,6 @@ using VContainer;
 
 namespace PhotoCamera.View
 {
-    public interface IPhotoCameraView
-    {
-        UniTask OnTriggerPulledAsync();
-        RenderTexture CapturedImage { get; }
-        MeshRenderer CameraMonitor { get; }
-        float FlashDuration { get; }
-        void InvokeTakePhotoEvent();
-    }
-
     [Serializable]
     public class PhotoCameraView : IPhotoCameraView
     {

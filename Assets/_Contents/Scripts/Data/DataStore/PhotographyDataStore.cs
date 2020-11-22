@@ -1,19 +1,14 @@
 using System;
 using System.IO;
+using PhotoCamera.Repository;
 using UnityEngine;
+using VContainer;
 #if UNITY_ANDROID
 using UnityEngine.Android;
 #endif
-using VContainer;
 
 namespace PhotoCamera.DataStore
 {
-    public interface IPhotographyDataStore
-    {
-        bool IsWritable();
-        void Save(byte[] bytes);
-    }
-
     public class PhotographyDataStore : IPhotographyDataStore
     {
         private readonly IGalleryDataStore galleryDataStore;

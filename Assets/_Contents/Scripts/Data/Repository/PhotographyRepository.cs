@@ -1,17 +1,11 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using PhotoCamera.DataStore;
+using PhotoCamera.UseCase;
 using UnityEngine;
 using VContainer;
 
 namespace PhotoCamera.Repository
 {
-    public interface IPhotographyRepository
-    {
-        bool IsWritable();
-        UniTask TakePhotoAsync(RenderTexture capturedImage, CancellationToken ct);
-    }
-
     public class PhotographyRepository : IPhotographyRepository
     {
         private readonly IPhotographyDataStore photographyDataStore;
@@ -27,15 +21,16 @@ namespace PhotoCamera.Repository
             return photographyDataStore.IsWritable();
         }
 
-        public async UniTask TakePhotoAsync(RenderTexture capturedImage, CancellationToken ct)
+        public async UniTask TakePhotoAsync(CameraMonitor capturedImage, CancellationToken ct)
         {
-            var tex = new Texture2D(capturedImage.width, capturedImage.height, TextureFormat.RGB24, false);
+            var image = capturedImage.capturedImage;
+            var tex = new Texture2D(image.width, image.height, TextureFormat.RGB24, false);
             await UniTask.WaitForEndOfFrame(ct);
 
             var currentRt = RenderTexture.active;
-            RenderTexture.active = capturedImage;
-            tex.ReadPixels(new Rect(0, 0, capturedImage.width, capturedImage.height), 0, 0);
-            if (QualitySettings.activeColorSpace == ColorSpace.Linear && !capturedImage.sRGB)
+            RenderTexture.active = image;
+            tex.ReadPixels(new Rect(0, 0, image.width, image.height), 0, 0);
+            if (QualitySettings.activeColorSpace == ColorSpace.Linear && !image.sRGB)
             {
                 var color = tex.GetPixels();
                 for (var i = 0; i < color.Length; i++)
