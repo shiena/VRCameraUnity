@@ -24,7 +24,7 @@ namespace PhotoCamera.DataStore
         private string GetScreenshotFolder()
         {
 #if UNITY_ANDROID && !UNITY_EDITOR
-            return Path.Combine(galleryDataStore.StoragePath, "Oculus", "Screenshots");
+            return Path.Combine("Pictures", Application.productName);
 #elif UNITY_STANDALONE && !UNITY_EDITOR
             return Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyPictures), Application.productName);
 #else
@@ -47,15 +47,16 @@ namespace PhotoCamera.DataStore
             return true;
         }
 
-        public void Save(byte[] bytes)
+        public void Save(string ext, sbyte[] data)
         {
+#if UNITY_EDITOR || UNITY_STANDALONE
             if (!Directory.Exists(screenshotFolder))
             {
                 Directory.CreateDirectory(screenshotFolder);
             }
-            var screenshotFile = Path.Combine(screenshotFolder, $"{Application.productName}_{DateTime.Now:yyyy-MM-dd_HH-mm-ss-fff}.png");
-            File.WriteAllBytes(screenshotFile, bytes);
-            galleryDataStore.RegisterImage(screenshotFile);
+#endif
+            var screenshotFile = Path.Combine(screenshotFolder, $"{Application.installerName}-{DateTime.Now:yyyyMMdd-HHmmssfff}.{ext}");
+            galleryDataStore.SaveImage(screenshotFile, data);
         }
     }
 }

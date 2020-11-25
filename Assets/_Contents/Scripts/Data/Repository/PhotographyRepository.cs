@@ -1,8 +1,10 @@
+using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using PhotoCamera.UseCase;
 using UnityEngine;
 using VContainer;
+using Object = UnityEngine.Object;
 
 namespace PhotoCamera.Repository
 {
@@ -46,9 +48,11 @@ namespace PhotoCamera.Repository
             tex.Apply();
             RenderTexture.active = currentRt;
 
-            var bytes = tex.EncodeToPNG();
+            var bytes = tex.EncodeToJPG();
             Object.Destroy(tex);
-            photographyDataStore.Save(bytes);
+            var data = new sbyte[bytes.Length];
+            Buffer.BlockCopy(bytes, 0, data, 0, bytes.Length);
+            photographyDataStore.Save("jpg", data);
         }
     }
 }

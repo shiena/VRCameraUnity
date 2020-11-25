@@ -5,7 +5,6 @@ namespace PhotoCamera.DataStore
 {
     public class GalleryDataStore : IGalleryDataStore, IDisposable
     {
-        public string StoragePath { get; }
         private AndroidJavaClass galleryHelper;
 
         public GalleryDataStore()
@@ -13,7 +12,6 @@ namespace PhotoCamera.DataStore
 #if UNITY_ANDROID && !UNITY_EDITOR
             galleryHelper = new AndroidJavaClass("photocamera.GalleryHelper");
 #endif
-            StoragePath = GetExternalStorageDirectory();
         }
 
         public void Dispose()
@@ -21,14 +19,9 @@ namespace PhotoCamera.DataStore
             galleryHelper?.Dispose();
         }
 
-        public void RegisterImage(string path)
+        public void SaveImage(string path, sbyte[] data)
         {
-            galleryHelper?.CallStatic("registerImage", path);
-        }
-
-        private string GetExternalStorageDirectory()
-        {
-            return galleryHelper?.CallStatic<string>("getExternalStorageDirectory");
+            galleryHelper?.CallStatic("saveImage", path, data);
         }
     }
 }

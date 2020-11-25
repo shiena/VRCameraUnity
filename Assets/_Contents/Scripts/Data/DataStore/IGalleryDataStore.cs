@@ -2,7 +2,6 @@ namespace PhotoCamera.DataStore
 {
     public interface IGalleryDataStore
     {
-        string StoragePath { get; }
-        void RegisterImage(string path);
+        void SaveImage(string path, sbyte[] data);
     }
 }
