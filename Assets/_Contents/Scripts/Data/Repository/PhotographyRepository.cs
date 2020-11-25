@@ -51,8 +51,7 @@ namespace PhotoCamera.Repository
             var bytes = tex.EncodeToJPG();
             Object.Destroy(tex);
             var data = new sbyte[bytes.Length];
-            Buffer.BlockCopy(bytes, 0, data, 0, bytes.Length);
-            photographyDataStore.Save("jpg", data);
+            photographyDataStore.Save("jpg", bytes);
         }
     }
 }
