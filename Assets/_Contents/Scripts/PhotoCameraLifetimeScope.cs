@@ -4,7 +4,6 @@ using PhotoCamera.View;
 using PhotoCamera.Presenter;
 using PhotoCamera.Repository;
 using PhotoCamera.UseCase;
-using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
@@ -12,8 +11,6 @@ namespace PhotoCamera
 {
     public class PhotoCameraLifetimeScope : LifetimeScope
     {
-        [SerializeField] private PhotoCameraView photoCameraView;
-
         protected override void Configure(IContainerBuilder builder)
         {
             builder.Register<PhotographyRepository>(Lifetime.Singleton).AsImplementedInterfaces();
@@ -36,7 +33,7 @@ namespace PhotoCamera
                 pointsBuilder.Add<PhotoCameraUseCase>();
             });
 
-            builder.RegisterInstance(photoCameraView).AsImplementedInterfaces();
+            builder.RegisterComponentInGameObject<PhotoCameraView>().AsImplementedInterfaces();
             builder.RegisterInstance(gameObject.GetCancellationTokenOnDestroy());
         }
     }

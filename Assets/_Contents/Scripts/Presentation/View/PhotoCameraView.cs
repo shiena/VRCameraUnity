@@ -1,4 +1,3 @@
-using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using PhotoCamera.Presenter;
@@ -9,8 +8,7 @@ using VContainer;
 
 namespace PhotoCamera.View
 {
-    [Serializable]
-    public class PhotoCameraView : IPhotoCameraView
+    public class PhotoCameraView : MonoBehaviour, IPhotoCameraView
     {
         [Header("Input")]
         [SerializeField] private XRGrabInteractable xrGrabInteractable;
