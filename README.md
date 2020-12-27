@@ -2,7 +2,7 @@
 
 ## Requirements
 
-Unity2020.1.17f1
+Unity2020.2.1f1
 
 ## Assets
 
