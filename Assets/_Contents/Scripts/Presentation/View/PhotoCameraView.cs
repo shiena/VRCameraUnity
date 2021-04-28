@@ -18,12 +18,12 @@ namespace PhotoCamera.View
         [SerializeField] [Range(0, 1)] private float flashDuration;
         [SerializeField] private UnityEvent onTakePhotoEvent;
 
-        private AsyncUnityEventHandler<XRBaseInteractor> triggerPulledEventHandler;
+        private AsyncUnityEventHandler<ActivateEventArgs> triggerPulledEventHandler;
 
         [Inject]
         public void Construct(CancellationToken token)
         {
-            triggerPulledEventHandler = xrGrabInteractable.onActivate.GetAsyncEventHandler(token);
+            triggerPulledEventHandler = xrGrabInteractable.activated.GetAsyncEventHandler(token);
         }
 
         public UniTask OnTriggerPulledAsync()

@@ -80,6 +80,28 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
+--- !u!114 &-5237734385345114197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056125dd64c0ed540b40a4af74f7b495, type: 3}
+  m_Name: RuntimeDebuggerOpenXRFeature Standalone
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Runtime Debugger
+  version: 1
+  featureIdInternal: com.unity.openxr.features.runtimedebugger
+  openxrExtensionStrings: 
+  company: Unity
+  priority: 0
+  required: 0
+  cacheSize: 1048576
+  perThreadCacheSize: 51200
 --- !u!114 &-4404446472274871572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,7 +155,6 @@ MonoBehaviour:
   m_Name: Standalone
   m_EditorClassIdentifier: 
   features:
-  - {fileID: 2426683890964746309}
   - {fileID: 1993425425176766353}
   - {fileID: -9121456322445875705}
   - {fileID: -2001391400388392151}
@@ -143,6 +164,8 @@ MonoBehaviour:
   - {fileID: -8396004674070533645}
   - {fileID: 6887224963206191395}
   - {fileID: 7739169742327882032}
+  - {fileID: 2426683890964746309}
+  - {fileID: -5237734385345114197}
   m_renderMode: 1
   m_depthSubmissionMode: 0
 --- !u!114 &-3188790306136587106
@@ -183,6 +206,7 @@ MonoBehaviour:
   - {fileID: 318441127943386204}
   - {fileID: -3627260547369449179}
   - {fileID: -1741041924268589264}
+  - {fileID: -695313600772051737}
   m_renderMode: 1
   m_depthSubmissionMode: 0
 --- !u!114 &-2001391400388392151
@@ -225,6 +249,28 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
+--- !u!114 &-695313600772051737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056125dd64c0ed540b40a4af74f7b495, type: 3}
+  m_Name: RuntimeDebuggerOpenXRFeature Android
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Runtime Debugger
+  version: 1
+  featureIdInternal: com.unity.openxr.features.runtimedebugger
+  openxrExtensionStrings: 
+  company: Unity
+  priority: 0
+  required: 0
+  cacheSize: 1048576
+  perThreadCacheSize: 51200
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
