@@ -1,8 +1,8 @@
-using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using PhotoCamera.UseCase;
 using UnityEngine;
+using UnityEngine.Rendering;
 using VContainer;
 using Object = UnityEngine.Object;
 
@@ -26,31 +26,18 @@ namespace PhotoCamera.Repository
         public async UniTask TakePhotoAsync(CameraMonitor capturedImage, CancellationToken ct)
         {
             var image = capturedImage.capturedImage;
-            var tex = new Texture2D(image.width, image.height, TextureFormat.RGB24, false);
-            await UniTask.WaitForEndOfFrame(ct);
+            var (f, w, h) = (image.graphicsFormat, image.width, image.height);
+            var ff = image.format;
+            var tex = new Texture2D(w, h, TextureFormat.RGB24, false);
+            await UniTask.NextFrame(ct);
 
-            var currentRt = RenderTexture.active;
-            RenderTexture.active = image;
-            tex.ReadPixels(new Rect(0, 0, image.width, image.height), 0, 0);
-            if (QualitySettings.activeColorSpace == ColorSpace.Linear && !image.sRGB)
-            {
-                var color = tex.GetPixels();
-                for (var i = 0; i < color.Length; i++)
-                {
-                    color[i].r = Mathf.LinearToGammaSpace(color[i].r);
-                    color[i].g = Mathf.LinearToGammaSpace(color[i].g);
-                    color[i].b = Mathf.LinearToGammaSpace(color[i].b);
-                }
-
-                tex.SetPixels(color);
-            }
-
-            tex.Apply();
-            RenderTexture.active = currentRt;
-
-            var bytes = tex.EncodeToJPG();
+            var req = await AsyncGPUReadback.Request(image, 0).WithCancellation(ct);
+            var rawByteArray = req.GetData<byte>();
+            await UniTask.SwitchToThreadPool();
+            using var jpg = ImageConversion.EncodeNativeArrayToJPG(rawByteArray, f, (uint)w, (uint)h);
+            await UniTask.SwitchToMainThread(ct);
+            var bytes = jpg.ToArray();
             Object.Destroy(tex);
-            var data = new sbyte[bytes.Length];
             photographyDataStore.Save("jpg", bytes);
         }
     }
