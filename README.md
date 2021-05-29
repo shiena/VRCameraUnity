@@ -17,4 +17,4 @@ Unity2020.3.10f1
 ## Unity Package Manager
 
 - [UniTask](https://github.com/Cysharp/UniTask) 2.2.5
-- [VContainer](https://github.com/hadashiA/VContainer) 1.7.2
+- [VContainer](https://github.com/hadashiA/VContainer) 1.8.2
