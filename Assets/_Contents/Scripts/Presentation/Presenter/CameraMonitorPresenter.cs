@@ -1,6 +1,6 @@
 using System.Threading;
+using AnimeTask;
 using Cysharp.Threading.Tasks;
-using DG.Tweening;
 using PhotoCamera.UseCase;
 using UnityEngine;
 using VContainer;
@@ -22,10 +22,8 @@ namespace PhotoCamera.Presenter
         {
             var material = photoCameraView.CameraMonitor.material;
             var originalColor = material.GetColor(EmissionColor);
-            await DOTween.To(() => material.GetColor(EmissionColor), color => material.SetColor(EmissionColor, color),
-                    Color.black, photoCameraView.FlashDuration)
-                .SetEase(Ease.InSine)
-                .WithCancellation(ct);
+            await Easing.Create<InSine>(originalColor, Color.black, photoCameraView.FlashDuration)
+                .ToAction(color => material.SetColor(EmissionColor, color), ct);
             material.SetColor(EmissionColor, originalColor);
         }
 
