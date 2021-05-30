@@ -200,6 +200,13 @@
       },
       "url": "https://packages.unity.com"
     },
+    "dev.kyubuns.animetask": {
+      "version": "1.8.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
     "jp.hadashikick.vcontainer": {
       "version": "1.8.2",
       "depth": 0,

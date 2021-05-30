@@ -14,6 +14,7 @@
     "com.unity.xr.management": "4.0.5",
     "com.unity.xr.oculus": "1.9.1",
     "com.unity.xr.openxr": "1.1.1",
+    "dev.kyubuns.animetask": "1.8.0",
     "jp.hadashikick.vcontainer": "1.8.2",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
@@ -53,7 +54,8 @@
       "url": "https://package.openupm.com",
       "scopes": [
         "com.cysharp",
-        "jp.hadashikick"
+        "jp.hadashikick",
+        "dev.kyubuns.animetask"
       ]
     }
   ]
