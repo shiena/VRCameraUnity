@@ -24,7 +24,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.8",
+      "version": "2.0.9",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -105,7 +105,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
-      "version": "1.1.26",
+      "version": "1.1.27",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -167,7 +167,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.management": {
-      "version": "4.0.5",
+      "version": "4.0.6",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -190,7 +190,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.openxr": {
-      "version": "1.1.1",
+      "version": "1.2.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -201,14 +201,16 @@
       "url": "https://packages.unity.com"
     },
     "dev.kyubuns.animetask": {
-      "version": "1.8.0",
+      "version": "1.9.0",
       "depth": 0,
       "source": "registry",
-      "dependencies": {},
+      "dependencies": {
+        "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask"
+      },
       "url": "https://package.openupm.com"
     },
     "jp.hadashikick.vcontainer": {
-      "version": "1.8.2",
+      "version": "1.8.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {
