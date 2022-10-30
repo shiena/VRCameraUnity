@@ -2,7 +2,7 @@
 
 ## Requirements
 
-Unity2020.3.20f1
+Unity2020.3.41f1
 
 ## Assets
 
@@ -13,6 +13,6 @@ Unity2020.3.20f1
 
 ## Unity Package Manager
 
-- [UniTask](https://github.com/Cysharp/UniTask) 2.2.5
-- [VContainer](https://github.com/hadashiA/VContainer) 1.9.0
-- [AnimeTask](https://github.com/kyubuns/AnimeTask) 1.11.0
+- [UniTask](https://github.com/Cysharp/UniTask) 2.3.2
+- [VContainer](https://github.com/hadashiA/VContainer) 1.11.1
+- [AnimeTask](https://github.com/kyubuns/AnimeTask) 1.13.1

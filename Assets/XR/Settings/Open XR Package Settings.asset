@@ -854,7 +854,6 @@ MonoBehaviour:
   - {fileID: -6184477185515950112}
   - {fileID: -4404446472274871572}
   - {fileID: -3188790306136587106}
-  - {fileID: 2426683890964746309}
   - {fileID: 7739169742327882032}
   - {fileID: -8396004674070533645}
   - {fileID: -5237734385345114197}
@@ -1040,6 +1039,7 @@ MonoBehaviour:
   - {fileID: -8856105966532162418}
   - {fileID: 318441127943386204}
   - {fileID: -3627260547369449179}
+  - {fileID: 2369752079753189348}
   - {fileID: 7692373381129135350}
   - {fileID: -1741041924268589264}
   - {fileID: -695313600772051737}
@@ -1832,6 +1832,27 @@ MonoBehaviour:
   features: []
   m_renderMode: 1
   m_depthSubmissionMode: 0
+--- !u!114 &2369752079753189348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7de993716e042c6499d0c18eed3a773c, type: 3}
+  m_Name: MockRuntime Android
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Mock Runtime
+  version: 0.0.2
+  featureIdInternal: com.unity.openxr.feature.mockruntime
+  openxrExtensionStrings: XR_UNITY_null_gfx XR_UNITY_android_present
+  company: Unity
+  priority: 0
+  required: 0
+  ignoreValidationErrors: 0
 --- !u!114 &2426683890964746309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2455,7 +2476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef793c31862a37448e907829482ef80, type: 3}
   m_Name: OculusQuestFeature Android
   m_EditorClassIdentifier: 
-  m_enabled: 0
+  m_enabled: 1
   nameUi: Oculus Quest Support
   version: 1.0.0
   featureIdInternal: com.unity.openxr.feature.oculusquest
@@ -2463,6 +2484,8 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
+  targetQuest: 1
+  targetQuest2: 1
 --- !u!114 &7739169742327882032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2479,7 +2502,7 @@ MonoBehaviour:
   nameUi: Mock Runtime
   version: 0.0.2
   featureIdInternal: com.unity.openxr.feature.mockruntime
-  openxrExtensionStrings: XR_UNITY_null_gfx
+  openxrExtensionStrings: XR_UNITY_null_gfx XR_UNITY_android_present
   company: Unity
   priority: 0
   required: 0
