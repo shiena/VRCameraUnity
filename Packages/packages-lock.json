@@ -1,11 +1,20 @@
 {
   "dependencies": {
     "com.cysharp.unitask": {
-      "version": "2.3.2",
+      "version": "2.3.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://package.openupm.com"
+    },
+    "com.unity.burst": {
+      "version": "1.7.3",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.mathematics": "1.2.1"
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.ext.nunit": {
       "version": "1.0.6",
@@ -15,7 +24,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
-      "version": "3.0.16",
+      "version": "3.0.17",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -24,7 +33,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.16",
+      "version": "2.0.17",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -40,7 +49,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.inputsystem": {
-      "version": "1.4.3",
+      "version": "1.4.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -49,7 +58,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.mathematics": {
-      "version": "1.1.0",
+      "version": "1.2.6",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
@@ -63,49 +72,49 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.core": {
-      "version": "10.10.1",
+      "version": "12.1.8",
       "depth": 1,
-      "source": "registry",
+      "source": "builtin",
       "dependencies": {
         "com.unity.ugui": "1.0.0",
         "com.unity.modules.physics": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
+      }
     },
     "com.unity.render-pipelines.universal": {
-      "version": "10.10.1",
+      "version": "12.1.8",
       "depth": 0,
-      "source": "registry",
+      "source": "builtin",
       "dependencies": {
-        "com.unity.mathematics": "1.1.0",
-        "com.unity.render-pipelines.core": "10.10.1",
-        "com.unity.shadergraph": "10.10.1"
-      },
-      "url": "https://packages.unity.com"
+        "com.unity.mathematics": "1.2.1",
+        "com.unity.burst": "1.7.3",
+        "com.unity.render-pipelines.core": "12.1.8",
+        "com.unity.shadergraph": "12.1.8"
+      }
     },
     "com.unity.searcher": {
-      "version": "4.3.2",
+      "version": "4.9.1",
       "depth": 2,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.shadergraph": {
-      "version": "10.10.1",
+      "version": "12.1.8",
+      "depth": 1,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.render-pipelines.core": "12.1.8",
+        "com.unity.searcher": "4.9.1"
+      }
+    },
+    "com.unity.subsystemregistration": {
+      "version": "1.1.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.unity.render-pipelines.core": "10.10.1",
-        "com.unity.searcher": "4.3.2"
+        "com.unity.modules.subsystems": "1.0.0"
       },
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.subsystemregistration": {
-      "version": "1.0.6",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
@@ -129,7 +138,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.4.8",
+      "version": "1.6.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -197,12 +206,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.oculus": {
-      "version": "1.12.1",
+      "version": "3.2.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.xr.management": "4.2.0",
-        "com.unity.ugui": "1.0.0"
+        "com.unity.xr.management": "4.2.0"
       },
       "url": "https://packages.unity.com"
     },
@@ -227,7 +235,7 @@
       "url": "https://package.openupm.com"
     },
     "jp.hadashikick.vcontainer": {
-      "version": "1.11.1",
+      "version": "1.12.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {

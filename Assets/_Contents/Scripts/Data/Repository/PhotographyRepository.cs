@@ -26,7 +26,7 @@ namespace PhotoCamera.Repository
         {
             var image = capturedImage.capturedImage;
             var (f, w, h) = (image.graphicsFormat, image.width, image.height);
-            await UniTask.WaitForEndOfFrame(ct);
+            await UniTask.Yield(PlayerLoopTiming.LastPostLateUpdate, ct);
 
             var req = await AsyncGPUReadback.Request(image, 0).WithCancellation(ct);
             var rawByteArray = req.GetData<byte>();
